@@ -1,0 +1,274 @@
+{
+  "note": "虚构资料，仅用于格式核对与规则演示，不包含真实个人信息",
+  "events": [
+    {
+      "event_id": "mat-001",
+      "kind": "CHECKLIST_PUBLISHED",
+      "occurred_at": "2026-08-30T09:00:00+08:00",
+      "subject_id": "cl-erreq",
+      "payload": {
+        "checklist_id": "cl-erreq",
+        "referral_type": "EMERGENCY_TRANSFER",
+        "version": 3,
+        "effective_from": "2026-09-01T00:00:00+08:00",
+        "effective_to": "2026-10-01T00:00:00+08:00",
+        "items": [
+          {"item_id": "patient-consent", "category": "PATIENT_CONSENT", "required": true, "requires_seal": false, "substitutable": false},
+          {"item_id": "sealed-lab-report", "category": "SOURCE_SEAL", "required": true, "requires_seal": true, "substitutable": false},
+          {"item_id": "imaging-status", "category": "EXAM_STATUS", "required": true, "requires_seal": false, "substitutable": true},
+          {"item_id": "transport-handover", "category": "TRANSPORT_HANDOVER", "required": true, "requires_seal": false, "substitutable": false},
+          {"item_id": "receiving-confirm", "category": "RECEIVING_CONFIRMATION", "required": true, "requires_seal": false, "substitutable": true}
+        ]
+      }
+    },
+    {
+      "event_id": "mat-002",
+      "kind": "CHECKLIST_PUBLISHED",
+      "occurred_at": "2026-09-20T09:00:00+08:00",
+      "subject_id": "cl-erreq",
+      "payload": {
+        "checklist_id": "cl-erreq",
+        "referral_type": "EMERGENCY_TRANSFER",
+        "version": 4,
+        "effective_from": "2026-10-01T00:00:00+08:00",
+        "effective_to": null,
+        "items": [
+          {"item_id": "patient-consent", "category": "PATIENT_CONSENT", "required": true, "requires_seal": false, "substitutable": false},
+          {"item_id": "sealed-lab-report", "category": "SOURCE_SEAL", "required": true, "requires_seal": true, "substitutable": false},
+          {"item_id": "imaging-status", "category": "EXAM_STATUS", "required": true, "requires_seal": false, "substitutable": true},
+          {"item_id": "transport-handover", "category": "TRANSPORT_HANDOVER", "required": true, "requires_seal": false, "substitutable": false},
+          {"item_id": "receiving-confirm", "category": "RECEIVING_CONFIRMATION", "required": true, "requires_seal": false, "substitutable": true},
+          {"item_id": "insurance-proof", "category": "PATIENT_CONSENT", "required": true, "requires_seal": false, "substitutable": false}
+        ]
+      }
+    },
+    {
+      "event_id": "mat-003",
+      "kind": "REFERRAL_CHECKLIST_BOUND",
+      "occurred_at": "2026-09-22T21:05:00+08:00",
+      "subject_id": "ref-0922-01",
+      "payload": {
+        "referral_id": "ref-0922-01",
+        "referral_type": "EMERGENCY_TRANSFER",
+        "checklist_id": "cl-erreq",
+        "version": 3,
+        "leg_id": "leg-0922-01"
+      }
+    },
+    {
+      "event_id": "mat-004",
+      "kind": "MATERIAL_RECEIVED",
+      "occurred_at": "2026-09-22T21:20:00+08:00",
+      "subject_id": "ref-0922-01",
+      "payload": {"receipt_id": "rc-img-1", "referral_id": "ref-0922-01", "item_id": "imaging-status", "channel": "pacs-gateway", "digest": "sha256:1f8a", "sealed": true}
+    },
+    {
+      "event_id": "mat-005",
+      "kind": "MATERIAL_RECEIVED",
+      "occurred_at": "2026-09-22T21:35:00+08:00",
+      "subject_id": "ref-0922-01",
+      "payload": {"receipt_id": "rc-img-2", "referral_id": "ref-0922-01", "item_id": "imaging-status", "channel": "mail-gateway", "digest": "sha256:1f8a", "sealed": true}
+    },
+    {
+      "event_id": "mat-006",
+      "kind": "MATERIAL_RECEIVED",
+      "occurred_at": "2026-09-22T21:40:00+08:00",
+      "subject_id": "ref-0922-01",
+      "payload": {"receipt_id": "rc-lab-1", "referral_id": "ref-0922-01", "item_id": "sealed-lab-report", "channel": "lis-gateway", "digest": "sha256:9c2d", "draft": true, "sealed": false}
+    },
+    {
+      "event_id": "mat-007",
+      "kind": "MATERIAL_READ",
+      "occurred_at": "2026-09-22T22:10:00+08:00",
+      "subject_id": "ref-0922-01",
+      "payload": {"receipt_id": "rc-lab-1", "reader": "nurse-receiving-03"}
+    },
+    {
+      "event_id": "mat-008",
+      "kind": "MATERIAL_CORRECTED",
+      "occurred_at": "2026-09-22T22:30:00+08:00",
+      "subject_id": "ref-0922-01",
+      "payload": {"receipt_id": "rc-lab-2", "referral_id": "ref-0922-01", "item_id": "sealed-lab-report", "channel": "lis-gateway", "supersedes": "rc-lab-1", "digest": "sha256:7b41", "draft": false, "sealed": true}
+    },
+    {
+      "event_id": "mat-009",
+      "kind": "MATERIAL_RECEIVED",
+      "occurred_at": "2026-09-22T22:50:00+08:00",
+      "subject_id": "ref-0922-01",
+      "payload": {"receipt_id": "rc-consent-1", "referral_id": "ref-0922-01", "item_id": "patient-consent", "channel": "esign-gateway", "digest": "sha256:c001", "sealed": true, "expires_at": "2026-09-23T08:00:00+08:00"}
+    },
+    {
+      "event_id": "mat-010",
+      "kind": "MATERIAL_RECEIVED",
+      "occurred_at": "2026-09-22T23:05:00+08:00",
+      "subject_id": "ref-0922-01",
+      "payload": {"receipt_id": "rc-th-1", "referral_id": "ref-0922-01", "item_id": "transport-handover", "channel": "ambulance-app", "digest": "sha256:aa10", "sealed": true}
+    },
+    {
+      "event_id": "mat-011",
+      "kind": "MATERIAL_RECEIVED",
+      "occurred_at": "2026-09-22T23:20:00+08:00",
+      "subject_id": "ref-0922-01",
+      "payload": {"receipt_id": "rc-th-2", "referral_id": "ref-0922-01", "item_id": "transport-handover", "channel": "paper-scan", "digest": "sha256:aa77", "sealed": true}
+    },
+    {
+      "event_id": "mat-012",
+      "kind": "CONFLICT_FLAGGED",
+      "occurred_at": "2026-09-22T23:21:00+08:00",
+      "subject_id": "ref-0922-01",
+      "payload": {"referral_id": "ref-0922-01", "item_id": "transport-handover", "paused_steps": ["CLINICAL_INTAKE"]}
+    },
+    {
+      "event_id": "mat-013",
+      "kind": "MATERIAL_RECEIVED",
+      "occurred_at": "2026-09-22T23:25:00+08:00",
+      "subject_id": "ref-0922-01",
+      "payload": {"receipt_id": "rc-vcn-1", "referral_id": "ref-0922-01", "item_id": "verbal-confirm-note", "channel": "phone-system", "digest": "sha256:vv01", "sealed": true}
+    },
+    {
+      "event_id": "mat-014",
+      "kind": "SUBSTITUTE_LINKED",
+      "occurred_at": "2026-09-22T23:26:00+08:00",
+      "subject_id": "ref-0922-01",
+      "payload": {"referral_id": "ref-0922-01", "item_id": "receiving-confirm", "substitute_receipt_id": "rc-vcn-1"}
+    },
+    {
+      "event_id": "mat-015",
+      "kind": "REMINDER_SENT",
+      "occurred_at": "2026-09-22T23:40:00+08:00",
+      "subject_id": "ref-0922-01",
+      "payload": {"referral_id": "ref-0922-01", "item_id": "patient-consent", "leg_id": "leg-0922-01"}
+    },
+    {
+      "event_id": "mat-016",
+      "kind": "PLAN_RECOMPUTED",
+      "occurred_at": "2026-09-23T00:10:00+08:00",
+      "subject_id": "ref-0922-01",
+      "payload": {
+        "referral_id": "ref-0922-01",
+        "trigger": "CONSENT_CHANGED",
+        "plan": {
+          "generated_at": "2026-09-23T00:10:00+08:00",
+          "emergency_level": "URGENT",
+          "executable": false,
+          "steps": [
+            {"step": "TRANSPORT", "status": "ready"},
+            {"step": "BED", "status": "ready"},
+            {"step": "CLINICAL_INTAKE", "status": "paused"}
+          ]
+        }
+      }
+    },
+    {
+      "event_id": "mat-017",
+      "kind": "OVERRIDE_GRANTED",
+      "occurred_at": "2026-09-23T00:30:00+08:00",
+      "subject_id": "ref-0922-01",
+      "payload": {"override_id": "ov-001", "referral_id": "ref-0922-01", "item_id": "patient-consent", "granted_by": "coord-11", "reason": "夜间授权续签中", "expires_at": "2026-09-23T06:00:00+08:00"}
+    },
+    {
+      "event_id": "mat-018",
+      "kind": "OVERRIDE_EXPIRED",
+      "occurred_at": "2026-09-23T06:05:00+08:00",
+      "subject_id": "ref-0922-01",
+      "payload": {"override_id": "ov-001"}
+    },
+    {
+      "event_id": "mat-021",
+      "kind": "REFERRAL_CHECKLIST_BOUND",
+      "occurred_at": "2026-09-23T07:00:00+08:00",
+      "subject_id": "ref-0923-02",
+      "payload": {
+        "referral_id": "ref-0923-02",
+        "referral_type": "EMERGENCY_TRANSFER",
+        "checklist_id": "cl-erreq",
+        "version": 3,
+        "leg_id": "leg-0923-02"
+      }
+    },
+    {
+      "event_id": "mat-022",
+      "kind": "MATERIAL_RECEIVED",
+      "occurred_at": "2026-09-23T07:05:00+08:00",
+      "subject_id": "ref-0923-02",
+      "payload": {"receipt_id": "rc2-consent", "referral_id": "ref-0923-02", "item_id": "patient-consent", "channel": "esign-gateway", "digest": "sha256:d002", "sealed": true}
+    },
+    {
+      "event_id": "mat-023",
+      "kind": "MATERIAL_RECEIVED",
+      "occurred_at": "2026-09-23T07:06:00+08:00",
+      "subject_id": "ref-0923-02",
+      "payload": {"receipt_id": "rc2-lab", "referral_id": "ref-0923-02", "item_id": "sealed-lab-report", "channel": "lis-gateway", "digest": "sha256:d003", "sealed": true}
+    },
+    {
+      "event_id": "mat-024",
+      "kind": "MATERIAL_RECEIVED",
+      "occurred_at": "2026-09-23T07:10:00+08:00",
+      "subject_id": "ref-0923-02",
+      "payload": {"receipt_id": "rc2-img-1", "referral_id": "ref-0923-02", "item_id": "imaging-status", "channel": "pacs-gateway", "digest": "sha256:e001", "sealed": true}
+    },
+    {
+      "event_id": "mat-025",
+      "kind": "MATERIAL_RECEIVED",
+      "occurred_at": "2026-09-23T07:12:00+08:00",
+      "subject_id": "ref-0923-02",
+      "payload": {"receipt_id": "rc2-img-2", "referral_id": "ref-0923-02", "item_id": "imaging-status", "channel": "mail-gateway", "digest": "sha256:e002", "sealed": true}
+    },
+    {
+      "event_id": "mat-026",
+      "kind": "CONFLICT_FLAGGED",
+      "occurred_at": "2026-09-23T07:13:00+08:00",
+      "subject_id": "ref-0923-02",
+      "payload": {"referral_id": "ref-0923-02", "item_id": "imaging-status", "paused_steps": ["CLINICAL_INTAKE"]}
+    },
+    {
+      "event_id": "mat-027",
+      "kind": "MATERIAL_CORRECTED",
+      "occurred_at": "2026-09-23T07:20:00+08:00",
+      "subject_id": "ref-0923-02",
+      "payload": {"receipt_id": "rc2-img-3", "referral_id": "ref-0923-02", "item_id": "imaging-status", "channel": "mail-gateway", "supersedes": "rc2-img-2", "digest": "sha256:e001", "sealed": true}
+    },
+    {
+      "event_id": "mat-028",
+      "kind": "MATERIAL_READ",
+      "occurred_at": "2026-09-23T07:22:00+08:00",
+      "subject_id": "ref-0923-02",
+      "payload": {"receipt_id": "rc2-img-3", "reader": "nurse-day-01"}
+    },
+    {
+      "event_id": "mat-029",
+      "kind": "CONFLICT_RESOLVED",
+      "occurred_at": "2026-09-23T07:23:00+08:00",
+      "subject_id": "ref-0923-02",
+      "payload": {"referral_id": "ref-0923-02", "item_id": "imaging-status"}
+    },
+    {
+      "event_id": "mat-030",
+      "kind": "MATERIAL_RECEIVED",
+      "occurred_at": "2026-09-23T07:30:00+08:00",
+      "subject_id": "ref-0923-02",
+      "payload": {"receipt_id": "rc2-th", "referral_id": "ref-0923-02", "item_id": "transport-handover", "channel": "ambulance-app", "digest": "sha256:d004", "sealed": true}
+    },
+    {
+      "event_id": "mat-031",
+      "kind": "MATERIAL_RECEIVED",
+      "occurred_at": "2026-09-23T07:35:00+08:00",
+      "subject_id": "ref-0923-02",
+      "payload": {"receipt_id": "rc2-rc", "referral_id": "ref-0923-02", "item_id": "receiving-confirm", "channel": "ward-system", "digest": "sha256:d005", "sealed": true}
+    },
+    {
+      "event_id": "mat-019",
+      "kind": "OVERRIDE_GRANTED",
+      "occurred_at": "2026-09-23T08:10:00+08:00",
+      "subject_id": "ref-0922-01",
+      "payload": {"override_id": "ov-002", "referral_id": "ref-0922-01", "item_id": "patient-consent", "granted_by": "coord-07", "reason": "授权已过期，家属补签中", "expires_at": "2026-09-23T20:00:00+08:00"}
+    },
+    {
+      "event_id": "mat-020",
+      "kind": "HANDOVER_ACCEPTED",
+      "occurred_at": "2026-09-23T08:30:00+08:00",
+      "subject_id": "ref-0922-01",
+      "payload": {"referral_id": "ref-0922-01", "accepted_by": "nurse-night-02", "shift_id": "shift-0923-n"}
+    }
+  ]
+}
