@@ -1,0 +1,8 @@
+[project]
+name = "referral-nurse-roster"
+version = "0.1.0"
+description = "转诊管家班次协调领域资料"
+requires-python = ">=3.11"
+
+[tool.unittest]
+start-directory = "tests"
